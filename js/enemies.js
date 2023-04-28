@@ -48,13 +48,7 @@ class Enemies {
             );
 
         }
-        // this.ctx.fillStyle = 'purple';
-        // this.ctx.fillRect(
-        //     this.enemySpecs.pos.x,
-        //     this.enemySpecs.pos.y,
-        //     this.enemySpecs.size.w,
-        //     this.enemySpecs.size.h
-        //     );
+
         this.move()
         this.animate(framesCounter)
     }
@@ -82,9 +76,7 @@ class Enemies {
             if (this.destroyedImage.framesIndex >= this.destroyedImage.frames) {
                 this.destroyedImage.framesIndex = 0
             }
-
         }
-
     }
 }
 

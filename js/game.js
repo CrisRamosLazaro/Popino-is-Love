@@ -490,7 +490,8 @@ const secretGame = {
         let isColliding = false
 
         this.enemies.forEach((enemy) => {
-            if (this.player.playerSpecs.pos.x < enemy.enemySpecs.pos.x + enemy.enemySpecs.size.w &&
+            if (!enemy.isDestroyed &&
+                this.player.playerSpecs.pos.x < enemy.enemySpecs.pos.x + enemy.enemySpecs.size.w &&
                 this.player.playerSpecs.pos.x + this.player.playerSpecs.size.w > enemy.enemySpecs.pos.x &&
                 this.player.playerSpecs.pos.y < enemy.enemySpecs.pos.y + enemy.enemySpecs.size.h &&
                 this.player.playerSpecs.size.h + this.player.playerSpecs.pos.y > enemy.enemySpecs.pos.y)
@@ -503,10 +504,9 @@ const secretGame = {
         if (isColliding && !this.player.wasColliding) {
             this.lifeCounter--
             if (this.lifeCounter === 0) {
-                this.drawScore()
                 this.gameOver()
+                this.drawScore()
                 clearInterval(1)
-
 
             }
         }
